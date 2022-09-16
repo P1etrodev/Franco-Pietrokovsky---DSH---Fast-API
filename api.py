@@ -5,7 +5,7 @@ from fastapi.responses import RedirectResponse
 from db import engine
 from alias import *
 
-app = FastAPI()
+app = FastAPI(title="Franco Pietrokovsky - DSH - FastAPI", version="1.0")
 
 with open("tokens.json", encoding="utf-8") as f:
     TOKENS = json.load(f)

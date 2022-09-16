@@ -27,7 +27,7 @@ def home():
     return RedirectResponse("https://henryapi.up.railway.app/docs")
 
 
-@app.get("/most_races_yr")
+@app.get("/races/most_races_yr")
 def get_most_races():
     query = (
         sql_select(
@@ -49,7 +49,7 @@ def get_most_races():
     return most_races
 
 
-@app.get("/most_first_pos")
+@app.get("/drivers/most_first_pos")
 def get_most_first_position():
     query = (
         sql_select(
@@ -70,7 +70,7 @@ def get_most_first_position():
     return most_first
 
 
-@app.get("/most_used_circuit")
+@app.get("/circuits/most_used_circuit")
 def get_most_used_circuit():
     query = (
         sql_select(
@@ -90,7 +90,7 @@ def get_most_used_circuit():
     return most_used
 
 
-@app.get("/driver_with_most_points")
+@app.get("/drivers/driver_with_most_points")
 def get_driver_with_most_points():
     subquery = (
         sql_select([constructors_cols.id])
@@ -116,3 +116,23 @@ def get_driver_with_most_points():
     driver["points"] = driver_points
 
     return driver
+
+@app.get('/drivers')
+def get_drivers():
+    return engine.execute(drivers_select()).fetchall()
+
+@app.get('/races')
+def get_drivers():
+    return engine.execute(races_select()).fetchall()
+
+@app.get('/results')
+def get_drivers():
+    return engine.execute(results_select()).fetchall()
+
+@app.get('/circuits')
+def get_drivers():
+    return engine.execute(circuits_select()).fetchall()
+
+@app.get('/constructors')
+def get_drivers():
+    return engine.execute(constructors_select()).fetchall()

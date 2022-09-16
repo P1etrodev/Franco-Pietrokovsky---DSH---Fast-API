@@ -118,31 +118,31 @@ def get_driver_with_most_points():
     return driver
 
 @app.get('/drivers')
-def get_drivers(id: int):
+def get_drivers(id: int = None):
     if id:    
         return engine.execute(drivers_select().where(drivers_cols.id == id)).first()
     return engine.execute(drivers_select()).fetchall()
 
 @app.get('/races')
-def get_drivers(id: int):
+def get_drivers(id: int = None):
     if id:    
         return engine.execute(drivers_select().where(drivers_cols.id == id)).first()
     return engine.execute(races_select()).fetchall()
 
 @app.get('/results')
-def get_drivers(id: int):
+def get_drivers(id: int = None):
     if id:    
         return engine.execute(drivers_select().where(drivers_cols.id == id)).first()
     return engine.execute(results_select()).fetchall()
 
 @app.get('/circuits')
-def get_drivers(id: int):
+def get_drivers(id: int = None):
     if id:    
         return engine.execute(drivers_select().where(drivers_cols.id == id)).first()
     return engine.execute(circuits_select()).fetchall()
 
 @app.get('/constructors')
-def get_drivers(id: int):
+def get_drivers(id: int = None):
     if id:    
         return engine.execute(drivers_select().where(drivers_cols.id == id)).first()
     return engine.execute(constructors_select()).fetchall()

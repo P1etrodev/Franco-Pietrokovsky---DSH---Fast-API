@@ -1,4 +1,4 @@
-from sqlalchemy import Table, Column, ForeignKey
+from sqlalchemy import Table, Column
 from db import meta
 from sqlalchemy.sql.sqltypes import *
 
@@ -43,7 +43,7 @@ races_table = Table(
     Column("id", Integer, primary_key=True),
     Column("year", Integer),
     Column("round", Integer),
-    Column("circuitId", Integer, ForeignKey("fran_circuits.id")),
+    Column("circuitId", Integer),
     Column("name", String(255)),
     Column("date", String(255)),
     Column("time", String(255)),
@@ -53,9 +53,9 @@ results_table = Table(
     "fran_results",
     meta,
     Column("id", Integer, primary_key=True),
-    Column("raceId", Integer, ForeignKey("fran_races.id")),
+    Column("raceId", Integer),
     Column("driverId", Integer),
-    Column("constructorId", Integer, ForeignKey("fran_constructors.id")),
+    Column("constructorId", Integer),
     Column("number", Integer),
     Column("grid", Integer),
     Column("position", Integer),

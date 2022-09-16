@@ -117,32 +117,39 @@ def get_driver_with_most_points():
 
     return driver
 
-@app.get('/drivers')
+
+@app.get("/drivers")
 def get_drivers(id: int = None):
-    if id:    
+    if id:
         return engine.execute(drivers_select().where(drivers_cols.id == id)).first()
     return engine.execute(drivers_select()).fetchall()
 
-@app.get('/races')
+
+@app.get("/races")
 def get_drivers(id: int = None):
-    if id:    
+    if id:
         return engine.execute(races_select().where(races_cols.id == id)).first()
     return engine.execute(races_select()).fetchall()
 
-@app.get('/results')
-def get_drivers(id: int = None):
-    if id:    
+
+@app.get("/results")
+def get_drivers(id: int):
+    if id:
         return engine.execute(results_select().where(results_cols.id == id)).first()
     return engine.execute(results_select()).fetchall()
 
-@app.get('/circuits')
+
+@app.get("/circuits")
 def get_drivers(id: int = None):
-    if id:    
+    if id:
         return engine.execute(circuits_select().where(circuits_cols.id == id)).first()
     return engine.execute(circuits_select()).fetchall()
 
-@app.get('/constructors')
+
+@app.get("/constructors")
 def get_drivers(id: int = None):
-    if id:    
-        return engine.execute(constructors_select().where(constructors_cols.id == id)).first()
+    if id:
+        return engine.execute(
+            constructors_select().where(constructors_cols.id == id)
+        ).first()
     return engine.execute(constructors_select()).fetchall()

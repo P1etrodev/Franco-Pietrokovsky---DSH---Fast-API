@@ -126,23 +126,23 @@ def get_drivers(id: int = None):
 @app.get('/races')
 def get_drivers(id: int = None):
     if id:    
-        return engine.execute(drivers_select().where(races_cols.id == id)).first()
+        return engine.execute(races_select().where(races_cols.id == id)).first()
     return engine.execute(races_select()).fetchall()
 
 @app.get('/results')
 def get_drivers(id: int = None):
     if id:    
-        return engine.execute(drivers_select().where(results_cols.id == id)).first()
+        return engine.execute(results_select().where(results_cols.id == id)).first()
     return engine.execute(results_select()).fetchall()
 
 @app.get('/circuits')
 def get_drivers(id: int = None):
     if id:    
-        return engine.execute(drivers_select().where(circuits_cols.id == id)).first()
+        return engine.execute(circuits_select().where(circuits_cols.id == id)).first()
     return engine.execute(circuits_select()).fetchall()
 
 @app.get('/constructors')
 def get_drivers(id: int = None):
     if id:    
-        return engine.execute(drivers_select().where(constructors_cols.id == id)).first()
+        return engine.execute(constructors_select().where(constructors_cols.id == id)).first()
     return engine.execute(constructors_select()).fetchall()

@@ -163,7 +163,6 @@ def post_driver(driver: schemas.Driver):
         "ref": driver.ref,
         "code": driver.code,
         "name": driver.name,
-        "lastname": driver.lastname,
         "dob": driver.dob,
         "nationality": driver.nationality,
     }

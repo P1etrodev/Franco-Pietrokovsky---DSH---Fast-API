@@ -179,5 +179,5 @@ def post_driver(id, ref, number, code, name, dob, nationality):
     }
     result = engine.execute(models.drivers_table.insert().values(new_driver))
     return engine.execute(
-        models.drivers_table.select().where(drivers_cols.code == result.lastrowid)
+        models.drivers_table.select().where(drivers_cols.code == new_driver['code'])
     )

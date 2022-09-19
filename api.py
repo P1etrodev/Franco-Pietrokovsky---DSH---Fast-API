@@ -160,10 +160,16 @@ def get_drivers(id: int = None):
 @app.post("/drivers/{id}-{ref}-{number}-{code}-{name}-{dob}-{nationality}")
 def post_driver(id, ref, number, code, name, dob, nationality):
     new_driver = schemas.Driver(
-        ref=ref, number=number, code=code, name=name, dob=dob, nationality=nationality
+        id=id,
+        ref=ref,
+        number=number,
+        code=code,
+        name=name,
+        dob=dob,
+        nationality=nationality,
     )
     new_driver = {
-        'id': id,
+        "id": id,
         "ref": new_driver.ref,
         "number": new_driver.number,
         "code": new_driver.code,

@@ -30,7 +30,6 @@ class Driver(BaseModel):
     ref: str
     code: str
     name: str
-    lastname: str
     dob: str
     nationality: str
 

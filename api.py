@@ -1,6 +1,8 @@
 import json
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import RedirectResponse
+import schemas
+import models
 
 from db import engine
 from alias import *
@@ -153,3 +155,19 @@ def get_drivers(id: int = None):
             constructors_select().where(constructors_cols.id == id)
         ).first()
     return engine.execute(constructors_select()).fetchall()
+
+
+@app.post("/drivers")
+def post_driver(driver: schemas.Driver):
+    new_driver = {
+        "ref": driver.ref,
+        "code": driver.code,
+        "name": driver.name,
+        "lastname": driver.lastname,
+        "dob": driver.dob,
+        "nationality": driver.nationality,
+    }
+    result = engine.execute(models.drivers_table.insert().values(new_driver))
+    return engine.execute(
+        models.drivers_table.select().where(drivers_cols.id == result.lastrowid)
+    )

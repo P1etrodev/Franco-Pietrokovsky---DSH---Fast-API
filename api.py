@@ -162,6 +162,12 @@ def post_driver(ref, number, code, name, dob, nationality):
     new_driver = schemas.Driver(
         ref=ref, number=number, code=code, name=name, dob=dob, nationality=nationality
     )
+    new_driver = {'ref': new_driver.ref,
+                 'number': new_driver.number,
+                 'code': new_driver.code,
+                 'name': new_driver.name,
+                 'dob': new_driver.dob,
+                 'nationality': new_driver.nationality}
     result = engine.execute(models.drivers_table.insert().values(new_driver))
     return engine.execute(
         models.drivers_table.select().where(drivers_cols.id == result.lastrowid)

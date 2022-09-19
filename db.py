@@ -1,10 +1,10 @@
 from sqlalchemy import create_engine, MetaData
-from sqlalchemy.orm import sessionmaker
+import os
 
-USER = "***REMOVED***123"
-PASSWORD = "***REMOVED***"
-HOST = "***REMOVED***"
-DB = "***REMOVED***"
+USER = os.environ['USER']
+PASSWORD = os.environ['PASSWORD']
+HOST = os.environ['HOST']
+DB = os.environ['DB']
 
 DB_URL = "mysql+pymysql://{}:{}@{}:3306/{}".format(USER, PASSWORD, HOST, DB)
 

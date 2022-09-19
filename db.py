@@ -1,10 +1,10 @@
 from sqlalchemy import create_engine, MetaData
 import os
 
-USER = os.environ['USER']
-PASSWORD = os.environ['PASSWORD']
-HOST = os.environ['HOST']
-DB = os.environ['DB']
+USER = 'root'#os.environ['USER']
+PASSWORD = 'eEITBL9hIeOrKDCmtifM'#os.environ['PASSWORD']
+HOST = 'containers-us-west-61.railway.app'#os.environ['HOST']
+DB = 'railway'#os.environ['DB']
 
 DB_URL = "mysql+pymysql://{}:{}@{}:3306/{}".format(USER, PASSWORD, HOST, DB)
 

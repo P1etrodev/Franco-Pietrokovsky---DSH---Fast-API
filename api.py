@@ -172,5 +172,5 @@ def post_driver(ref, number, code, name, dob, nationality):
     }
     result = engine.execute(models.drivers_table.insert().values(new_driver))
     return engine.execute(
-        models.drivers_table.select().where(drivers_cols.id == new_driver.id)
+        models.drivers_table.select().where(drivers_cols.code == new_driver["code"])
     )

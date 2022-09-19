@@ -157,12 +157,13 @@ def get_drivers(id: int = None):
     return engine.execute(constructors_select()).fetchall()
 
 
-@app.post("/drivers/{ref}-{number}-{code}-{name}-{dob}-{nationality}")
-def post_driver(ref, number, code, name, dob, nationality):
+@app.post("/drivers/{id}-{ref}-{number}-{code}-{name}-{dob}-{nationality}")
+def post_driver(id, ref, number, code, name, dob, nationality):
     new_driver = schemas.Driver(
         ref=ref, number=number, code=code, name=name, dob=dob, nationality=nationality
     )
     new_driver = {
+        'id': id,
         "ref": new_driver.ref,
         "number": new_driver.number,
         "code": new_driver.code,
@@ -172,5 +173,5 @@ def post_driver(ref, number, code, name, dob, nationality):
     }
     result = engine.execute(models.drivers_table.insert().values(new_driver))
     return engine.execute(
-        models.drivers_table.select().where(drivers_cols.code == new_driver["code"])
+        models.drivers_table.select().where(drivers_cols.code == result.lastrowid)
     )

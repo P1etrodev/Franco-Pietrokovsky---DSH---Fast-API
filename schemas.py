@@ -28,6 +28,7 @@ class Constructor(BaseModel):
 class Driver(BaseModel):
     id: int
     ref: str
+    number: int
     code: str
     name: str
     dob: str

@@ -161,6 +161,7 @@ def get_drivers(id: int = None):
 def post_driver(driver: schemas.Driver):
     new_driver = {
         "ref": driver.ref,
+        'number': driver.number,
         "code": driver.code,
         "name": driver.name,
         "dob": driver.dob,

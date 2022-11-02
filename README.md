@@ -34,7 +34,7 @@
 
 ## Plus:
 
-Como adicional, incluí la ruta [https://henryapi.up.railway.app/dev/{token}](https://henryapi.up.railway.app/{token}/devs), donde (con propósitos de prueba) se deberá reemplazar **{token}** por **FKpdbdj7kg**.
+Como adicional, incluí la ruta ~~[https://henryapi.up.railway.app/dev/{token}](https://henryapi.up.railway.app/{token}/devs)~~, donde (con propósitos de prueba) se deberá reemplazar **{token}** por **FKpdbdj7kg**.
 La misma también incluye una Excepción HTTP al utilizar un Token no válido.
 
 

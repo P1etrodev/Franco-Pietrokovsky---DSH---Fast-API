@@ -60,4 +60,4 @@ La misma también incluye una Excepción HTTP al utilizar un Token no válido.
 
 ## Resultado:
 
-### Esta es mi [API](https://henryapi.up.railway.app/).
+### ~~Esta es mi [API](https://henryapi.up.railway.app/)~~ (OFFLINE).
